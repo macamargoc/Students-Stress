@@ -137,11 +137,8 @@ Correlation analysis
 With the correlation test using cor() the relation between the stress_level and the five main categories could be analyzed. This illustrated the most strongly associated factors  with stress allowing a more in-depth analysis.
 
 
-
 Regression analysis
-Building a series of linear regression models led to an enhanced assessment of the influence of various factors on stress level. The respective function is lm(stress_level~., data=data).Then, by systematically removing variables with no statistical significance, the focus only on the factors that were most impactful was ensured.
-
-To enable visualization of the impact of each variable, we used the function ggplot() creating bar plot, of the coefficients of the final linear regression model with the relevant factors.
+Building a series of linear regression models led to an enhanced assessment of the influence of various factors on stress level. The respective function is lm(stress_level~., data=data).Then, by systematically removing variables with no statistical significance, the focus only on the factors that were most impactful was ensured. To enable visualization of the impact of each variable, we used the function ggplot() creating bar plot, of the coefficients of the final linear regression model with the relevant factors.
 
 
 Histograms
@@ -152,6 +149,7 @@ To better understand the factors most associated with stress levels, a binary va
 
 
 Insights and results
+
 Correlation
 As it was explained in the data description, considering the nature of the variables, we decided to group the features of the study into 5 groups: psychological, physiological, social, environmental and academic factors.This decision was made to identify the feature within each group that has the highest correlation with stress.
 
@@ -159,9 +157,7 @@ The results reveal that self-esteem has the strongest correlation with stress wi
 
 Regression analysis
 Although the correlation analysis gave us meaningful insights into the level and relationship of each feature with stress, a regression analysis was needed to find out the significance of each factor to students’ stress. The final model only includes highly significant variables with  p-values lower than 0.001.
-As demonstrated, the most influential factors on the students’ stress, in descending order according to the p-value are: self esteem, noise level, headache, sleep quality, bullying, basic needs, academic performance, study load and extracurricular activities. The lowest p-value of the model (<2.2e-16 ) and high F-statistic (414.4) indicates that the linear regression is well adjusting the data.  
-
-The coefficient indicates that for each unit that the variable increases, the stress of the student is going to be affected according to the value of the coefficient. For example, for each unit headache increases, the stress level of the student is going to increase by 0.07 %, being the most influential factor. Followed by noise level, bullying and sleep quality. Hence, if the school is interested in implementing measures to decrease students' stress levels, these measures will be more effective if they focus on reducing noise levels and bullying, since headaches are not a factor that they can realistically control. On the other hand, regarding the objective question of this report,  “which specific feature within each factor group has the most significant impact on student stress, based on the dataset?” and using the result of the linear regression, we can state that the most significant feature between the psychological factors is self esteem , for physiological is headache, for social is bullying , for environmental is noise level and for academic is academic performance. 
+As demonstrated, the most influential factors on the students’ stress, in descending order according to the p-value are: self esteem, noise level, headache, sleep quality, bullying, basic needs, academic performance, study load and extracurricular activities. The lowest p-value of the model (<2.2e-16 ) and high F-statistic (414.4) indicates that the linear regression is well adjusting the data. The coefficient indicates that for each unit that the variable increases, the stress of the student is going to be affected according to the value of the coefficient. For example, for each unit headache increases, the stress level of the student is going to increase by 0.07 %, being the most influential factor. Followed by noise level, bullying and sleep quality. Hence, if the school is interested in implementing measures to decrease students' stress levels, these measures will be more effective if they focus on reducing noise levels and bullying, since headaches are not a factor that they can realistically control. On the other hand, regarding the objective question of this report,  “which specific feature within each factor group has the most significant impact on student stress, based on the dataset?” and using the result of the linear regression, we can state that the most significant feature between the psychological factors is self esteem , for physiological is headache, for social is bullying , for environmental is noise level and for academic is academic performance. 
 
 Histograms
 
@@ -173,10 +169,7 @@ Logistic regression
 
 Here now the output from the logistic regression model that attempts to predict whether a student is stressed (Stressed_student) based on various predictors, including psychological, physiological, social, environmental, and academic factors. 
 Focusing on the factors with a statistically significant impact, the results show that academic performance, sleep quality, basic needs, safety, and headaches have the strongest influence on student stress, with both positive and negative log-odds values indicating whether these factors increase or decrease the likelihood of a student being classified as stressed. For example, basic needs has the largest negative effect (-0.477), meaning that when basic needs are not met, the likelihood of being stressed decreases by 0.477 on the log-odds scale. The same interpretation can be applied to the other significant factors.
-
 The varImp() function reveals the relative importance of each predictor based on its contribution to the model. Basic needs (3.928), academic performance (3.882), sleep quality (3.630), and safety (3.285) have the highest importance values, indicating they are the most influential factors in predicting stress. In contrast, self-esteem (0.404), peer pressure (0.697), and teacher-student relationship (0.619) have the lowest importance, suggesting they are less significant predictors of stress.
-
-
 The prop.table() function converts the counts in the confusion matrix into proportions, helping to evaluate the model's accuracy. The model shows good accuracy, with high proportions of correct predictions: 64% for stressed students and 24% for non-stressed students. It has a low false negative rate of 1%, meaning it rarely misses identifying stressed students, but an 11% false positive rate, indicating it sometimes incorrectly classifies non-stressed students as stressed.
 
 
